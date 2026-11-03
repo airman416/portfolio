@@ -27,6 +27,16 @@ header{display:flex;flex-direction:column;gap:16px;padding-bottom:40px}
 header img{width:88px;height:88px;border-radius:50%;object-fit:cover;object-position:50% 25%}
 h1{font-size:40px;line-height:1.15}
 .intro{font-size:22px;line-height:1.5}
+.intro mark,.helm mark{background:linear-gradient(transparent 60%,var(--sun) 60%);color:inherit;padding:0 2px}
+.facts{display:flex;flex-wrap:wrap;gap:6px;font-size:15px}
+.facts span{border:1px solid var(--rule);border-radius:999px;padding:3px 11px}
+.howai{font-size:18px;line-height:1.5;color:var(--muted);border-left:3px solid var(--blue);padding-left:14px}
+.howai b{color:var(--ink);font-weight:600}
+.helm{background:var(--blue-wash);border:1px solid #cfdcff;border-radius:10px;padding:28px;display:flex;flex-direction:column;gap:20px;margin-bottom:48px}
+.helm .tag{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.helm h2{font-size:32px}
+.helm .stack span{background:#fff}
+.helm .cta{align-self:flex-start;background:var(--blue);color:#fff;text-decoration:none;padding:10px 18px;border-radius:6px;font-size:18px}
 .nav{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:17px}
 
 .index{border-top:1px solid var(--ink);padding-block:20px 8px}
@@ -71,10 +81,12 @@ svg .hd.hot{fill:var(--blue)}
 .grid a{display:flex;flex-direction:column;gap:8px;color:inherit;text-decoration:none;min-width:0}
 .grid img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;border:1px solid var(--rule)}
 .grid b{color:var(--blue);font-weight:500;font-size:19px}
+.grid em{color:var(--ink);font-style:normal;font-weight:600}
 .grid span{font-size:16px;line-height:1.4;color:var(--muted)}
 footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);font-size:16px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 18px}
 
 @media (max-width:600px){
+  .helm{padding:20px}
   body{font-size:18px}
   .page{padding-block:40px 56px}
   h1{font-size:34px}
@@ -94,7 +106,9 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);font-si
 <header>
   <img src="img/headshot.jpg" alt="Armaan Agrawal">
   <h1>Armaan Agrawal</h1>
-  <p class="intro">I build AI tools that help creators and app founders get their work seen. Below is what I've shipped, most impressive first: who each one is for, the problem it solves, and how it works.</p>
+  <p class="intro">I studied computer science at <b>Northeastern</b> (Class of 2026). I build products with AI, and I build them fast: I run <a href="#helm">Helm Labs</a>, a studio that ships apps for clients in weeks, and my own iOS apps have <mark>1,200+ users</mark>.</p>
+  <p class="facts"><span>Northeastern CS ’26</span><span>Founder, Helm Labs</span><span>Software engineer, Alpha School</span><span>Builds with Claude Code</span></p>
+  <p class="howai"><b>How I use AI.</b> AI agents write most of my first-draft code, so one person can ship what used to need a team. I write the spec, check every change, and test with real users each week. Every project below says what AI does in it.</p>
   <div class="nav">
     <a href="https://github.com/airman416">GitHub</a>
     <a href="https://linkedin.com/in/agr1">LinkedIn</a>
@@ -104,8 +118,25 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);font-si
   </div>
 </header>
 
+<section class="helm" id="helm">
+  <span class="tag">My app studio</span>
+  <h2>Helm Labs</h2>
+  <p class="one">I ship <mark>a working first version of your app or AI tool in 1–2 weeks</mark>, and you own all of the code.</p>
+  <dl>
+    <dt>For</dt><dd>Founders and businesses with an idea they have talked about for months but not shipped.</dd>
+    <dt>Problem</dt><dd>A normal agency takes months and charges for a team. Most of that work AI can now do in weeks.</dd>
+    <dt>How it works</dt><dd>Start with a $1,000–$5,000 sprint: a working V1 and a technical plan in 14 days. Then fixed-price milestones, where you pay only for finished work. You talk directly to me, the builder.</dd>
+    <dt>AI's job</dt><dd>I build with Claude Code and AI agents, and I add AI features (agents, document processing, image generation) where they save real hours.</dd>
+    <dt>Past work</dt><dd>Staged AI, DayTime, SwipeFeed, Feedshare, SamGPT and the Content Engine, all on this page.</dd>
+    <dt>Built with</dt><dd class="stack"><span>SwiftUI</span><span>Next.js</span><span>Claude API</span><span>OpenAI API</span><span>Supabase</span><span>AWS</span></dd>
+  </dl>
+  <a class="shot" href="https://agency.armaanagrawal.com"><img src="img/agency.jpg" alt="Helm Labs website"></a>
+  <a class="cta" href="https://agency.armaanagrawal.com">Book a call with Helm Labs ↗</a>
+</section>
+
 <nav class="index" aria-label="Projects">
   <ol>
+    <li><a href="#helm">Helm Labs</a> <span>my app studio</span></li>
     <li><a href="#samgpt">SamGPT + Viral Clip Generator</a> <span>for Sam Parr</span></li>
     <li><a href="#hookline">Hookline</a> <span>TikTok marketing</span></li>
     <li><a href="#makeapps">makeapps.world</a> <span>App Store screenshots</span></li>
@@ -123,6 +154,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);font-si
     <dt>For</dt><dd>Sam Parr, co-host of <i>My First Million</i>, and the editors who cut his clips.</dd>
     <dt>Problem</dt><dd>The best moments are buried past minute forty of three-hour episodes. Finding them meant scrubbing by hand.</dd>
     <dt>What it does</dt><dd>Ask a question and get the exact quote with a YouTube link to the second it was said. Paste any episode link and get its 3 best moments, each under 2 minutes, cut to 16:9.</dd>
+    <dt>AI's job</dt><dd>Embeddings find quotes by meaning. Whisper writes the transcript and marks who is talking. An LLM picks the 3 best moments.</dd>
     <dt>Built with</dt><dd class="stack"><span>RAG</span><span>Embeddings</span><span>Vector search</span><span>Whisper</span><span>Speaker diarization</span><span>FFmpeg</span><span>Next.js</span></dd>
   </dl>
   <div class="pair">
@@ -159,6 +191,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);font-si
     <dt>Problem</dt><dd>Slideshows are the cheapest way to grow an app on TikTok, but making 7 good slides every day is a full-time job, and AI-made posts usually look fake.</dd>
     <dt>What it does</dt><dd>Ten minutes of setup. Each day you pick from drafts that already pass its copy rules. It posts at the best time and uses install numbers to write the next batch.</dd>
     <dt>Status</dt><dd>Live, paid product ($49/month).</dd>
+    <dt>AI's job</dt><dd>Claude writes every slideshow, and rewrites the next batch based on which posts brought installs.</dd>
     <dt>Built with</dt><dd class="stack"><span>Claude API</span><span>Node + Express</span><span>Canvas rendering</span><span>React</span><span>Supabase</span><span>TikTok API</span></dd>
   </dl>
   <a class="shot" href="https://hookline.app/"><img src="img/hookline.jpg" alt="Hookline home page" loading="lazy"></a>
@@ -190,6 +223,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);font-si
     <dt>Problem</dt><dd>Shoppers decide on an app from its first screenshot. A designer costs $300+ and a week; raw screenshots lose installs.</dd>
     <dt>What it does</dt><dd>Upload screens and get a full set with device frames, headlines and backgrounds, exported at Apple's sizes. AI writes the headlines; the layout is fixed in code so every slide fits.</dd>
     <dt>Status</dt><dd>Live. Free to start, no account needed.</dd>
+    <dt>AI's job</dt><dd>AI writes the headline for each screenshot. Code, not AI, places it, so text never overflows.</dd>
     <dt>Built with</dt><dd class="stack"><span>Next.js</span><span>Supabase</span><span>Claude API</span><span>Headless Chromium export</span></dd>
   </dl>
   <a class="shot" href="https://makeapps.world/"><img src="img/makeapps.jpg" alt="makeapps.world home page" loading="lazy"></a>
@@ -202,6 +236,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);font-si
     <dt>For</dt><dd>Sam Parr, built to his spec.</dd>
     <dt>Problem</dt><dd>A good idea posted once on X never reaches his LinkedIn, Instagram or newsletter readers, and AI rewrites don't sound like him.</dd>
     <dt>What it does</dt><dd>Each format gets its own editor tab. Rewrites are tuned to his voice, and carousels export ready to post.</dd>
+    <dt>AI's job</dt><dd>An LLM rewrites one tweet into four formats, tuned to sound like Sam.</dd>
     <dt>Built with</dt><dd class="stack"><span>Next.js</span><span>AI rewrite</span><span>Carousel export</span></dd>
   </dl>
   <a class="shot" href="https://content.armaanagrawal.com/"><img src="img/content.jpg" alt="Content Engine editor" loading="lazy"></a>
@@ -214,6 +249,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);font-si
     <dt>For</dt><dd>Designers and founders building a landing page.</dd>
     <dt>Problem</dt><dd>To design a pricing section, you want to see how 30 great sites did theirs. Collecting them by hand takes hours.</dd>
     <dt>What it does</dt><dd>A scraper crawls from site to similar site, saves each section in full resolution and tags it (hero, pricing, call to action). The library grows on its own.</dd>
+    <dt>AI's job</dt><dd>An automated browser does the collecting. I built the full crawler with Claude Code.</dd>
     <dt>Built with</dt><dd class="stack"><span>Browser automation</span><span>Node</span><span>Cloudflare R2</span><span>Cloudflare Workers</span></dd>
   </dl>
   <a class="shot" href="https://swipefile.armaanagrawal.com/"><img src="img/swipefile.jpg" alt="swipefile library" loading="lazy"></a>
@@ -226,6 +262,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);font-si
     <dt>For</dt><dd>Gym-goers who skip sessions when nobody is watching.</dd>
     <dt>Problem</dt><dd>Programs ignore what equipment you have, and skipping costs nothing.</dd>
     <dt>What it does</dt><dd>Builds each session from your gear, schedule and last lifts. Weekly leagues from Bronze to Elite make skipping cost you rank.</dd>
+    <dt>AI's job</dt><dd>AI plans each workout from your equipment, schedule and last lifts.</dd>
     <dt>Built with</dt><dd class="stack"><span>SwiftUI</span><span>AI session builder</span><span>In-app subscriptions</span></dd>
   </dl>
   <a class="shot" href="https://apps.apple.com/us/app/pushplay-lift-compete/id6822480909"><img src="img/pushplay.jpg" alt="pushplay app screens" loading="lazy"></a>
@@ -238,6 +275,7 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);font-si
     <dt>For</dt><dd>Founders who want to post on LinkedIn every day.</dd>
     <dt>Problem</dt><dd>AI-written posts all sound the same, and readers can tell.</dd>
     <dt>What it does</dt><dd>Asks one question at a time, finds the idea worth posting and checks your draft. Its advice comes from essays by David Perell, Justin Welsh, Nicolas Cole and Dickie Bush.</dd>
+    <dt>AI's job</dt><dd>An LLM coach asks questions and checks your draft. It is told never to write the post for you.</dd>
     <dt>Built with</dt><dd class="stack"><span>Web app</span><span>LLM coaching</span><span>On-device storage</span></dd>
   </dl>
   <a class="shot" href="https://founders-app.armaanagrawal.com/"><img src="img/founders.jpg" alt="Founders App screen" loading="lazy"></a>
@@ -247,8 +285,8 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);font-si
   <h2>Smaller apps</h2>
   <div class="grid">
     <a href="https://apps.apple.com/us/app/feedshare-2-0/id6758862484"><img src="img/feedshare.jpg" alt="Feedshare app screens" loading="lazy"><b>Feedshare ↗</b><span>Post free campus food with a photo and room number, so students don't walk to an empty box.</span></a>
-    <a href="https://apps.apple.com/us/app/staged-ai-ai-home-design/id6756622224"><img src="img/stagedai.jpg" alt="Staged AI app screens" loading="lazy"><b>Staged AI ↗</b><span>See a room in a new style from one photo, before you buy furniture.</span></a>
-    <a href="https://apps.apple.com/us/app/swipefeed-short-breaking-news/id6739143466"><img src="img/swipefeed.jpg" alt="SwipeFeed app screens" loading="lazy"><b>SwipeFeed ↗</b><span>Breaking news one story per swipe, like short video.</span></a>
+    <a href="https://apps.apple.com/us/app/staged-ai-ai-home-design/id6756622224"><img src="img/stagedai.jpg" alt="Staged AI app screens" loading="lazy"><b>Staged AI ↗</b><span><em>200+ real-estate agents.</em> See a room in a new style from one photo, before you buy furniture.</span></a>
+    <a href="https://apps.apple.com/us/app/swipefeed-short-breaking-news/id6739143466"><img src="img/swipefeed.jpg" alt="SwipeFeed app screens" loading="lazy"><b>SwipeFeed ↗</b><span><em>1,000+ users.</em> Breaking news one story per swipe, like short video.</span></a>
     <a href="https://apps.apple.com/zw/app/daytime-track-your-day/id6748592214"><img src="img/daytime.jpg" alt="DayTime app screens" loading="lazy"><b>DayTime ↗</b><span>A check-in every 15 minutes turns your day into an honest calendar.</span></a>
   </div>
 </section>

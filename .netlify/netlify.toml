@@ -7,7 +7,7 @@ redirects = []
 [functions."*"]
 
 [build]
-publish = "/Users/armaanagrawal/Documents/Apps"
+publish = "/Users/armaanagrawal/Documents/Apps/PROJECTS/portfolio/dist"
 publishOrigin = "default"
 
 [build.environment]

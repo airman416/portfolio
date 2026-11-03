@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Armaan Agrawal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap">
+<style>
+/* Layout: one narrow reading column, like a letter. Each project is a numbered entry, ranked, with a hard rule between entries. Single light look by choice. */
+:root{
+  --bg:#ffffff; --ink:#111111; --muted:#5f6368; --rule:#e6e6e6;
+  --blue:#0a5cff; --blue-wash:#eef3ff; --sun:#ffd43b;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:19px/1.6 var(--serif);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--blue);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.page{max-width:720px;margin:0 auto;padding-block:64px 80px}
+h1,h2{font-weight:500;text-wrap:balance;margin:0;letter-spacing:-.01em}
+p{margin:0}
+
+header{display:flex;flex-direction:column;gap:16px;padding-bottom:40px}
+header img{width:88px;height:88px;border-radius:50%;object-fit:cover;object-position:50% 25%}
+h1{font-size:40px;line-height:1.15}
+.intro{font-size:22px;line-height:1.5}
+.nav{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:17px}
+
+.index{border-top:1px solid var(--ink);padding-block:20px 8px}
+.index ol{margin:0;padding-left:1.4em;display:grid;gap:2px}
+.index li::marker{color:var(--muted)}
+.index span{color:var(--muted)}
+
+.project{border-top:1px solid var(--ink);padding-block:40px;display:flex;flex-direction:column;gap:18px}
+.p-head{display:flex;align-items:baseline;gap:14px}
+.num{font-size:15px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:1.6em}
+.p-head h2{font-size:32px;line-height:1.2}
+.p-head a.out{margin-left:auto;font-size:16px;white-space:nowrap}
+.one{font-size:22px;line-height:1.45}
+.one mark{background:linear-gradient(transparent 60%,var(--sun) 60%);color:inherit;padding:0 2px}
+
+dl{display:grid;grid-template-columns:7.5em 1fr;gap:10px 16px;margin:0;font-size:18px}
+dt{color:var(--muted);font-style:italic}
+dd{margin:0;min-width:0}
+.stack{display:flex;flex-wrap:wrap;gap:6px}
+.stack span{font-size:15px;background:var(--blue-wash);color:var(--blue);padding:2px 9px;border-radius:999px}
+
+.shot{display:block;border-radius:6px;overflow:hidden;border:1px solid var(--rule)}
+.shot img{display:block;width:100%}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.diagram{margin:0;border:1px solid var(--rule);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.diagram .scroll{overflow-x:auto}
+.diagram svg{display:block;width:100%;min-width:620px;height:auto}
+.diagram figcaption{font-size:16px;color:var(--muted)}
+svg .box{fill:#ffffff;stroke:#cfcfcf;stroke-width:1.5}
+svg .box.hot{fill:var(--blue-wash);stroke:var(--blue)}
+svg .t{fill:var(--ink);font:500 15px var(--serif)}
+svg .s{fill:var(--muted);font:italic 13px var(--serif)}
+svg .ar{stroke:#9a9a9a;stroke-width:1.5;fill:none}
+svg .ar.hot{stroke:var(--blue)}
+svg .hd{fill:#9a9a9a}
+svg .hd.hot{fill:var(--blue)}
+
+.more{border-top:1px solid var(--ink);padding-block:40px 0;display:flex;flex-direction:column;gap:14px}
+.more h2{font-size:26px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:28px 16px}
+.grid a{display:flex;flex-direction:column;gap:8px;color:inherit;text-decoration:none;min-width:0}
+.grid img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;border:1px solid var(--rule)}
+.grid b{color:var(--blue);font-weight:500;font-size:19px}
+.grid span{font-size:16px;line-height:1.4;color:var(--muted)}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);font-size:16px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 18px}
+
+@media (max-width:600px){
+  body{font-size:18px}
+  .page{padding-block:40px 56px}
+  h1{font-size:34px}
+  .intro,.one{font-size:20px}
+  .p-head{flex-wrap:wrap}
+  .p-head{gap:2px 10px}
+  .p-head .num{flex-basis:100%}
+  .p-head a.out{margin-left:0;flex-basis:100%}
+  dl{grid-template-columns:1fr;gap:2px}
+  dd{margin-bottom:10px}
+  .pair{grid-template-columns:1fr}
+}
+</style>
+
+<div class="page">
+
+<header>
+  <img src="img/headshot.jpg" alt="Armaan Agrawal">
+  <h1>Armaan Agrawal</h1>
+  <p class="intro">I build AI tools that help creators and app founders get their work seen. Below is what I've shipped, most impressive first: who each one is for, the problem it solves, and how it works.</p>
+  <div class="nav">
+    <a href="https://github.com/airman416">GitHub</a>
+    <a href="https://linkedin.com/in/agr1">LinkedIn</a>
+    <a href="https://x.com/airman416">X</a>
+    <a href="https://armaanagrawal.com">Writing</a>
+    <a href="https://theairuntime.com/p/builder-spotlight-armaan-agrawal">Featured in The AI Runtime</a>
+  </div>
+</header>
+
+<nav class="index" aria-label="Projects">
+  <ol>
+    <li><a href="#samgpt">SamGPT + Viral Clip Generator</a> <span>for Sam Parr</span></li>
+    <li><a href="#hookline">Hookline</a> <span>TikTok marketing</span></li>
+    <li><a href="#makeapps">makeapps.world</a> <span>App Store screenshots</span></li>
+    <li><a href="#content">Content Engine</a> <span>for Sam Parr</span></li>
+    <li><a href="#swipefile">swipefile</a> <span>landing page library</span></li>
+    <li><a href="#pushplay">pushplay</a> <span>iOS strength coach</span></li>
+    <li><a href="#founders">Founders App</a> <span>LinkedIn writing coach</span></li>
+  </ol>
+</nav>
+
+<article class="project" id="samgpt">
+  <div class="p-head"><span class="num">01</span><h2>SamGPT + Viral Clip Generator</h2><a class="out" href="https://samparr.armaanagrawal.com/">Visit ↗</a></div>
+  <p class="one">Search every Sam Parr quote on <i>My First Million</i> in plain English, then <mark>turn the moment you find into a ready-to-post clip</mark>.</p>
+  <dl>
+    <dt>For</dt><dd>Sam Parr, co-host of <i>My First Million</i>, and the editors who cut his clips.</dd>
+    <dt>Problem</dt><dd>The best moments are buried past minute forty of three-hour episodes. Finding them meant scrubbing by hand.</dd>
+    <dt>What it does</dt><dd>Ask a question and get the exact quote with a YouTube link to the second it was said. Paste any episode link and get its 3 best moments, each under 2 minutes, cut to 16:9.</dd>
+    <dt>Built with</dt><dd class="stack"><span>RAG</span><span>Embeddings</span><span>Vector search</span><span>Whisper</span><span>Speaker diarization</span><span>FFmpeg</span><span>Next.js</span></dd>
+  </dl>
+  <div class="pair">
+    <a class="shot" href="https://samparr.armaanagrawal.com/"><img src="img/sam.jpg" alt="SamGPT search page"></a>
+    <a class="shot" href="https://samparr.armaanagrawal.com/clipper"><img src="img/viral.jpg" alt="Viral Clip Generator" loading="lazy"></a>
+  </div>
+  <figure class="diagram">
+    <div class="scroll">
+    <svg viewBox="0 0 900 230" role="img" aria-label="An episode is transcribed with speaker labels into timestamped chunks. The same chunks feed search and the clip cutter.">
+      <defs>
+        <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="hd" d="M0 0L10 5L0 10z"/></marker>
+      </defs>
+      <rect class="box" x="10" y="80" width="140" height="70" rx="6"/><text class="t" x="80" y="110" text-anchor="middle">Episode</text><text class="s" x="80" y="130" text-anchor="middle">YouTube link</text>
+      <rect class="box" x="185" y="80" width="160" height="70" rx="6"/><text class="t" x="265" y="110" text-anchor="middle">Transcribe</text><text class="s" x="265" y="130" text-anchor="middle">who said what, when</text>
+      <rect class="box hot" x="380" y="70" width="180" height="90" rx="6"/><text class="t" x="470" y="102" text-anchor="middle">Timestamped chunks</text><text class="s" x="470" y="122" text-anchor="middle">text, speaker,</text><text class="s" x="470" y="140" text-anchor="middle">start and end second</text>
+      <path class="ar" d="M150 115H181" marker-end="url(#a)"/><path class="ar" d="M345 115H376" marker-end="url(#a)"/>
+      <rect class="box" x="600" y="15" width="130" height="60" rx="6"/><text class="t" x="665" y="41" text-anchor="middle">Search index</text><text class="s" x="665" y="60" text-anchor="middle">by meaning</text>
+      <rect class="box" x="600" y="155" width="130" height="60" rx="6"/><text class="t" x="665" y="181" text-anchor="middle">Rank moments</text><text class="s" x="665" y="200" text-anchor="middle">top 3, under 2 min</text>
+      <path class="ar" d="M560 95C585 95 580 45 596 45" marker-end="url(#a)"/><path class="ar" d="M560 135C585 135 580 185 596 185" marker-end="url(#a)"/>
+      <rect class="box hot" x="760" y="15" width="130" height="60" rx="6"/><text class="t" x="825" y="41" text-anchor="middle">SamGPT</text><text class="s" x="825" y="60" text-anchor="middle">quote + link to second</text>
+      <rect class="box hot" x="760" y="155" width="130" height="60" rx="6"/><text class="t" x="825" y="181" text-anchor="middle">Clip</text><text class="s" x="825" y="200" text-anchor="middle">16:9 video file</text>
+      <path class="ar" d="M730 45H756" marker-end="url(#a)"/><path class="ar" d="M730 185H756" marker-end="url(#a)"/>
+    </svg>
+    </div>
+    <figcaption>Both tools read the same chunks. Because each chunk keeps its speaker and timestamps, a search result can jump to the exact second, and the clip cutter knows where to cut.</figcaption>
+  </figure>
+</article>
+
+<article class="project" id="hookline">
+  <div class="p-head"><span class="num">02</span><h2>Hookline</h2><a class="out" href="https://hookline.app/">hookline.app ↗</a></div>
+  <p class="one">Get app installs from TikTok <mark>without making TikToks</mark>. Hookline writes, designs and posts slideshows, then learns which ones brought installs.</p>
+  <dl>
+    <dt>For</dt><dd>Solo app founders who need users but have no time or skill for daily content.</dd>
+    <dt>Problem</dt><dd>Slideshows are the cheapest way to grow an app on TikTok, but making 7 good slides every day is a full-time job, and AI-made posts usually look fake.</dd>
+    <dt>What it does</dt><dd>Ten minutes of setup. Each day you pick from drafts that already pass its copy rules. It posts at the best time and uses install numbers to write the next batch.</dd>
+    <dt>Status</dt><dd>Live, paid product ($49/month).</dd>
+    <dt>Built with</dt><dd class="stack"><span>Claude API</span><span>Node + Express</span><span>Canvas rendering</span><span>React</span><span>Supabase</span><span>TikTok API</span></dd>
+  </dl>
+  <a class="shot" href="https://hookline.app/"><img src="img/hookline.jpg" alt="Hookline home page" loading="lazy"></a>
+  <figure class="diagram">
+    <div class="scroll">
+    <svg viewBox="0 0 900 200" role="img" aria-label="Brief, drafts, founder approves, posts to TikTok, installs measured, results update the brief">
+      <defs>
+        <marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="hd" d="M0 0L10 5L0 10z"/></marker>
+        <marker id="bh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="hd hot" d="M0 0L10 5L0 10z"/></marker>
+      </defs>
+      <rect class="box" x="10" y="25" width="150" height="65" rx="6"/><text class="t" x="85" y="53" text-anchor="middle">Your app</text><text class="s" x="85" y="72" text-anchor="middle">problem it solves</text>
+      <rect class="box hot" x="195" y="25" width="150" height="65" rx="6"/><text class="t" x="270" y="53" text-anchor="middle">7-slide drafts</text><text class="s" x="270" y="72" text-anchor="middle">written by Claude</text>
+      <rect class="box" x="380" y="25" width="150" height="65" rx="6"/><text class="t" x="455" y="53" text-anchor="middle">You approve</text><text class="s" x="455" y="72" text-anchor="middle">pick, don't rewrite</text>
+      <rect class="box" x="565" y="25" width="150" height="65" rx="6"/><text class="t" x="640" y="53" text-anchor="middle">Posts to TikTok</text><text class="s" x="640" y="72" text-anchor="middle">at peak hours</text>
+      <rect class="box hot" x="750" y="25" width="140" height="65" rx="6"/><text class="t" x="820" y="53" text-anchor="middle">Installs</text><text class="s" x="820" y="72" text-anchor="middle">per post</text>
+      <path class="ar" d="M160 57H191" marker-end="url(#b)"/><path class="ar" d="M345 57H376" marker-end="url(#b)"/><path class="ar" d="M530 57H561" marker-end="url(#b)"/><path class="ar" d="M715 57H746" marker-end="url(#b)"/>
+      <path class="ar hot" d="M820 90V150H270V94" marker-end="url(#bh)"/>
+      <text class="s" x="545" y="172" text-anchor="middle">what brought installs shapes the next drafts</text>
+    </svg>
+    </div>
+  </figure>
+</article>
+
+<article class="project" id="makeapps">
+  <div class="p-head"><span class="num">03</span><h2>makeapps.world</h2><a class="out" href="https://makeapps.world/">makeapps.world ↗</a></div>
+  <p class="one">Turn raw phone screenshots into <mark>App Store screenshots that sell</mark>, in minutes, in the browser.</p>
+  <dl>
+    <dt>For</dt><dd>Indie iOS developers without a designer.</dd>
+    <dt>Problem</dt><dd>Shoppers decide on an app from its first screenshot. A designer costs $300+ and a week; raw screenshots lose installs.</dd>
+    <dt>What it does</dt><dd>Upload screens and get a full set with device frames, headlines and backgrounds, exported at Apple's sizes. AI writes the headlines; the layout is fixed in code so every slide fits.</dd>
+    <dt>Status</dt><dd>Live. Free to start, no account needed.</dd>
+    <dt>Built with</dt><dd class="stack"><span>Next.js</span><span>Supabase</span><span>Claude API</span><span>Headless Chromium export</span></dd>
+  </dl>
+  <a class="shot" href="https://makeapps.world/"><img src="img/makeapps.jpg" alt="makeapps.world home page" loading="lazy"></a>
+</article>
+
+<article class="project" id="content">
+  <div class="p-head"><span class="num">04</span><h2>Content Engine</h2><a class="out" href="https://content.armaanagrawal.com/">Visit ↗</a></div>
+  <p class="one">One tweet in, <mark>four posts out</mark>: LinkedIn, an Instagram carousel, a newsletter section and a quote card.</p>
+  <dl>
+    <dt>For</dt><dd>Sam Parr, built to his spec.</dd>
+    <dt>Problem</dt><dd>A good idea posted once on X never reaches his LinkedIn, Instagram or newsletter readers, and AI rewrites don't sound like him.</dd>
+    <dt>What it does</dt><dd>Each format gets its own editor tab. Rewrites are tuned to his voice, and carousels export ready to post.</dd>
+    <dt>Built with</dt><dd class="stack"><span>Next.js</span><span>AI rewrite</span><span>Carousel export</span></dd>
+  </dl>
+  <a class="shot" href="https://content.armaanagrawal.com/"><img src="img/content.jpg" alt="Content Engine editor" loading="lazy"></a>
+</article>
+
+<article class="project" id="swipefile">
+  <div class="p-head"><span class="num">05</span><h2>swipefile</h2><a class="out" href="https://swipefile.armaanagrawal.com/">Visit ↗</a></div>
+  <p class="one">A library of the web's best landing pages, <mark>652 sections from 211 sites</mark>, sorted by part of the page.</p>
+  <dl>
+    <dt>For</dt><dd>Designers and founders building a landing page.</dd>
+    <dt>Problem</dt><dd>To design a pricing section, you want to see how 30 great sites did theirs. Collecting them by hand takes hours.</dd>
+    <dt>What it does</dt><dd>A scraper crawls from site to similar site, saves each section in full resolution and tags it (hero, pricing, call to action). The library grows on its own.</dd>
+    <dt>Built with</dt><dd class="stack"><span>Browser automation</span><span>Node</span><span>Cloudflare R2</span><span>Cloudflare Workers</span></dd>
+  </dl>
+  <a class="shot" href="https://swipefile.armaanagrawal.com/"><img src="img/swipefile.jpg" alt="swipefile library" loading="lazy"></a>
+</article>
+
+<article class="project" id="pushplay">
+  <div class="p-head"><span class="num">06</span><h2>pushplay</h2><a class="out" href="https://apps.apple.com/us/app/pushplay-lift-compete/id6822480909">App Store ↗</a></div>
+  <p class="one">A strength coach on your phone that <mark>plans each workout and ranks you against other lifters</mark>.</p>
+  <dl>
+    <dt>For</dt><dd>Gym-goers who skip sessions when nobody is watching.</dd>
+    <dt>Problem</dt><dd>Programs ignore what equipment you have, and skipping costs nothing.</dd>
+    <dt>What it does</dt><dd>Builds each session from your gear, schedule and last lifts. Weekly leagues from Bronze to Elite make skipping cost you rank.</dd>
+    <dt>Built with</dt><dd class="stack"><span>SwiftUI</span><span>AI session builder</span><span>In-app subscriptions</span></dd>
+  </dl>
+  <a class="shot" href="https://apps.apple.com/us/app/pushplay-lift-compete/id6822480909"><img src="img/pushplay.jpg" alt="pushplay app screens" loading="lazy"></a>
+</article>
+
+<article class="project" id="founders">
+  <div class="p-head"><span class="num">07</span><h2>Founders App</h2><a class="out" href="https://founders-app.armaanagrawal.com/">Visit ↗</a></div>
+  <p class="one">A LinkedIn coach that <mark>helps you find the idea, but never writes the post</mark>.</p>
+  <dl>
+    <dt>For</dt><dd>Founders who want to post on LinkedIn every day.</dd>
+    <dt>Problem</dt><dd>AI-written posts all sound the same, and readers can tell.</dd>
+    <dt>What it does</dt><dd>Asks one question at a time, finds the idea worth posting and checks your draft. Its advice comes from essays by David Perell, Justin Welsh, Nicolas Cole and Dickie Bush.</dd>
+    <dt>Built with</dt><dd class="stack"><span>Web app</span><span>LLM coaching</span><span>On-device storage</span></dd>
+  </dl>
+  <a class="shot" href="https://founders-app.armaanagrawal.com/"><img src="img/founders.jpg" alt="Founders App screen" loading="lazy"></a>
+</article>
+
+<section class="more">
+  <h2>Smaller apps</h2>
+  <div class="grid">
+    <a href="https://apps.apple.com/us/app/feedshare-2-0/id6758862484"><img src="img/feedshare.jpg" alt="Feedshare app screens" loading="lazy"><b>Feedshare ↗</b><span>Post free campus food with a photo and room number, so students don't walk to an empty box.</span></a>
+    <a href="https://apps.apple.com/us/app/staged-ai-ai-home-design/id6756622224"><img src="img/stagedai.jpg" alt="Staged AI app screens" loading="lazy"><b>Staged AI ↗</b><span>See a room in a new style from one photo, before you buy furniture.</span></a>
+    <a href="https://apps.apple.com/us/app/swipefeed-short-breaking-news/id6739143466"><img src="img/swipefeed.jpg" alt="SwipeFeed app screens" loading="lazy"><b>SwipeFeed ↗</b><span>Breaking news one story per swipe, like short video.</span></a>
+    <a href="https://apps.apple.com/zw/app/daytime-track-your-day/id6748592214"><img src="img/daytime.jpg" alt="DayTime app screens" loading="lazy"><b>DayTime ↗</b><span>A check-in every 15 minutes turns your day into an honest calendar.</span></a>
+  </div>
+</section>
+
+<footer>
+  <span>Armaan Agrawal</span>
+  <a href="https://github.com/airman416">GitHub</a>
+  <a href="https://linkedin.com/in/agr1">LinkedIn</a>
+  <a href="https://apps.apple.com/us/developer/armaan-agrawal/id6811422858">App Store</a>
+</footer>
+
+</div>
